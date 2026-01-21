@@ -1,0 +1,24 @@
+{
+  "name": "@shade/near-private-exec-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Developer SDK for Private Execution → Public Settlement on NEAR (MVP)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "near-api-js": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "tsx": "^4.15.6",
+    "typescript": "^5.4.5"
+  }
+}
+
