@@ -1,0 +1,25 @@
+cat > worker/package.json <<'JSON'
+{
+  "name": "shade-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Off-chain private execution worker for NEAR Private Execution → Public Settlement MVP",
+  "scripts": {
+    "start": "node --enable-source-maps dist/index.js",
+    "dev": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "near-api-js": "^4.0.4",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "tsx": "^4.15.6",
+    "typescript": "^5.4.5"
+  }
+}
+JSON
