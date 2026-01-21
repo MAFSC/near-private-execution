@@ -1,0 +1,19 @@
+cat > worker/tsconfig.json <<'JSON'
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "sourceMap": true
+  },
+  "include": ["src/**/*.ts"]
+}
+JSON
