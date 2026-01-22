@@ -1,0 +1,21 @@
+# Rust
+target/
+**/target/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Env / secrets
+.env
+.env.*
+*.key
+*.pem
+*.json
+.near-credentials/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
