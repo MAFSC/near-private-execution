@@ -38,4 +38,3 @@ echo "Next steps:"
 echo "  1) bash scripts/deploy.testnet.sh"
 echo "  2) cd worker && cp .env.example .env && npm i && npm run dev"
 echo "  3) bash scripts/demo.testnet.sh"
-

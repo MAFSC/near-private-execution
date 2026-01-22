@@ -1,5 +1,3 @@
-mkdir -p contracts/shade-verifier/src
-cat > contracts/shade-verifier/src/lib.rs <<'RS'
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use near_sdk::collections::UnorderedSet;
 use near_sdk::{env, near, AccountId, PanicOnDefault};
@@ -88,4 +86,3 @@ impl ShadeVerifier {
         }
     }
 }
-RS

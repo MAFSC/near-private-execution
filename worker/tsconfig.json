@@ -1,4 +1,3 @@
-cat > worker/tsconfig.json <<'JSON'
 {
   "compilerOptions": {
     "target": "ES2022",
@@ -16,4 +15,3 @@ cat > worker/tsconfig.json <<'JSON'
   },
   "include": ["src/**/*.ts"]
 }
-JSON

@@ -1,4 +1,3 @@
-cat > scripts/demo.testnet.sh <<'SH'
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -110,6 +109,3 @@ echo "$DEMO_STATE"
 echo ""
 echo "🎉 End-to-end demo complete."
 echo "Job was requested on-chain, executed privately by worker, and settled with an async callback."
-SH
-
-chmod +x scripts/demo.testnet.sh

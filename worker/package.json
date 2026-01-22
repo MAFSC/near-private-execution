@@ -1,4 +1,3 @@
-cat > worker/package.json <<'JSON'
 {
   "name": "shade-worker",
   "version": "0.1.0",
@@ -22,4 +21,3 @@ cat > worker/package.json <<'JSON'
     "typescript": "^5.4.5"
   }
 }
-JSON

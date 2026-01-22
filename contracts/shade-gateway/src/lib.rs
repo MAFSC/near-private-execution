@@ -1,9 +1,7 @@
-mkdir -p contracts/shade-gateway/src
-cat > contracts/shade-gateway/src/lib.rs <<'RS'
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use near_sdk::collections::{LookupMap, Vector};
 use near_sdk::json_types::U128;
-use near_sdk::{env, near, AccountId, PanicOnDefault, Promise};
+use near_sdk::{NearToken, env, near, AccountId, PanicOnDefault, Promise};
 
 #[near(serializers=[borsh, json])]
 #[derive(Clone)]
@@ -181,7 +179,7 @@ impl ShadeGateway {
             })
             .to_string()
             .into_bytes(),
-            0,
+            NearToken::from_yoctonear(0),
             near_sdk::Gas::from_tgas(30),
         );
 
@@ -213,4 +211,3 @@ mod hex {
         s
     }
 }
-RS

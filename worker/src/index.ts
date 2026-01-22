@@ -1,5 +1,3 @@
-mkdir -p worker/src
-cat > worker/src/index.ts <<'TS'
 import 'dotenv/config';
 import { connect, keyStores, KeyPair, Near, Account } from 'near-api-js';
 import crypto from 'crypto';
@@ -164,4 +162,3 @@ main().catch((e) => {
   console.error('[worker] fatal:', e);
   process.exit(1);
 });
-TS

@@ -1,5 +1,3 @@
-mkdir -p scripts
-cat > scripts/deploy.testnet.sh <<'SH'
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -54,5 +52,3 @@ echo "  GATEWAY=$GATEWAY"
 echo "  DEMO=$DEMO"
 echo ""
 echo "Next: create worker env and run worker (see worker/.env.example)"
-SH
-chmod +x scripts/deploy.testnet.sh

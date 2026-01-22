@@ -1,5 +1,3 @@
-mkdir -p contracts/shade-callback-demo/src
-cat > contracts/shade-callback-demo/src/lib.rs <<'RS'
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use near_sdk::{env, near, AccountId, PanicOnDefault};
 
@@ -69,4 +67,3 @@ impl ShadeCallbackDemo {
         self.gateway.clone()
     }
 }
-RS
