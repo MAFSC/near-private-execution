@@ -19,6 +19,3 @@ npm-debug.log*
 
 # Logs
 *.log
-
-# Build outputs
-**/dist/
