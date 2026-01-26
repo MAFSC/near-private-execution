@@ -5,17 +5,20 @@ target/
 # Node
 node_modules/
 npm-debug.log*
+**/dist/
 
 # Env / secrets
 .env
 .env.*
+.near-credentials/
+**/.near-credentials/
+
+# Keys / certs
 *.key
 *.pem
-*.json
-.near-credentials/
-
-# OS
-.DS_Store
 
 # Logs
 *.log
+
+# OS
+.DS_Store
