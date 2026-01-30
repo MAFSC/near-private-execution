@@ -32,6 +32,7 @@ Private execution layer for NEAR:
 
 ## Run Demo
 bash scripts/deploy.testnet.sh
+
 bash scripts/demo.testnet.sh
 
 
