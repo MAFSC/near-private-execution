@@ -1,58 +1,32 @@
 # near-private-execution
 # 🕶️ Private Execution → Public Settlement on NEAR
 
-Privacy-preserving execution layer for NEAR: run sensitive logic off-chain (TEE / zk-lite-ready) and settle only a verifiable result on-chain using commitments + NEAR async callbacks — **no consensus changes**.
+# NEAR Private Execution
 
-## What we built (MVP)
-- **On-chain**: `shade-gateway` contract that accepts execution requests, stores commitments, verifies results, and triggers async settlement callbacks.
-- **Off-chain**: a private execution **worker** that picks up jobs, executes confidential logic (TEE-simulated), produces `result_commitment + proof`, and submits settlement on-chain.
-- **Demo dApp**: `shade-callback-demo` contract that receives `on_private_result(...)` callback.
+## What it does
+Private execution layer for NEAR:
+- Sensitive logic runs off-chain (TEE / zk-lite)
+- Only commitments & proofs settle on-chain
+- No changes to NEAR consensus
 
-## How it works (commit → execute → settle)
-1) **Commit (on-chain)**  
-   dApp calls `request_job()` with `input_commitment` (hash of private inputs) + public params + callback target.
+## Why it matters
+- Public blockchains leak business logic
+- Enables private DeFi, auctions, games, voting
 
-2) **Private Execute (off-chain)**  
-   Worker fetches the job, runs the logic privately, outputs:
-   - `public_output` (minimal public result)
-   - `result_commitment = H(result || salt)`
-   - `proof` (MVP: signature; architecture ready for TEE attestation / zk-lite)
+## Architecture
+1. Gateway contract (NEAR)
+2. Off-chain executor (TEE / zk-lite)
+3. Verifier contract
+4. Public settlement
 
-3) **Settle (on-chain)**  
-   Contract verifies `proof`, stores a receipt, and triggers an async callback to the dApp contract.
+## Demo flow
+1. User submits job
+2. Private execution off-chain
+3. Commitment verified on-chain
+4. Callback executed
 
-## Why NEAR
-- **Async calls** make multi-step settlement native (request → result → callback).
-- **Low-cost state** for commitments/receipts.
-- **Account-based model** fits executor isolation (per-worker accounts).
+## Status
+✔ Contracts deployed on NEAR Testnet  
+✔ End-to-end demo flow  
+✔ Open-source
 
-## Infra / Privacy judging criteria alignment
-**Working demo**  
-✅ End-to-end pipeline: `request_job → worker execute → submit_result → callback`.
-
-**Infrastructure value**  
-✅ Reusable primitive for any dApp needing confidential computation with public settlement (auctions, DAO, DeFi, MEV-resistant flows).
-
-**Privacy-by-design**  
-✅ Private inputs are never published on-chain; only commitments + minimal public output.  
-✅ Verifiable settlement through proof verification (signature now; TEE/zk-lite extension points included).
-
-**Technical clarity**  
-✅ Clear separation of layers: on-chain settlement vs off-chain private execution.  
-✅ Deterministic job IDs, receipts, replay protection.
-
-## Use cases
-- Sealed-bid auctions
-- Confidential DAO governance / rules execution
-- Private trading strategy execution
-- MEV-resistant execution workflows
-
-## Quickstart (Testnet)
-### Prereqs
-- NEAR CLI
-- Node.js 18+
-- Rust toolchain for NEAR contracts
-
-### 1) Deploy contracts
-```bash
-bash scripts/deploy.testnet.sh
