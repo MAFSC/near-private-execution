@@ -35,4 +35,26 @@ bash scripts/deploy.testnet.sh
 
 bash scripts/demo.testnet.sh
 
+## Quick demo (NEAR testnet)
+
+### 1. Prerequisites
+- near-cli
+- cargo-near
+- Rust 1.86.0
+- wasm32-unknown-unknown
+
+### 2. Setup
+cp .env.testnet.example .env.testnet
+# fill USER=myaccount.testnet
+
+### 3. Run demo
+set -a; source ./.env.testnet; set +a
+bash scripts/demo.testnet.sh
+
+### 4. Expected output
+- Gateway config printed
+- Job submitted
+- Demo contract receives callback
+
+
 
