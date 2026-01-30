@@ -30,3 +30,8 @@ Private execution layer for NEAR:
 ✔ End-to-end demo flow  
 ✔ Open-source
 
+## Run Demo
+bash scripts/deploy.testnet.sh
+bash scripts/demo.testnet.sh
+
+
